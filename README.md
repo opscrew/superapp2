@@ -13,4 +13,4 @@ The request rate is counted over the last two seconds.
 - `GET /hog?mb=1024`: allocate and retain N MB in 64MB chunks, so the pod gets OOMKilled on demand.
 - Any other path: the API, answering `{ app, version, answer, at }`.
 
-Deployed by [superapp2-infra](../superapp2-infra) with Pulumi, which sets both rates from its stack config (`normalMaxRps`, `saturatedRps`) and a CPU limit of a full core. The GitHub Actions workflow publishes `ghcr.io/<org>/superapp2`.
+Deployed by [superapp2-infra](../superapp2-infra), whose Kustomize manifests Argo CD syncs; they set both rates (`NORMAL_MAX_RPS`, `SATURATED_RPS`) and a CPU limit of a full core. The GitHub Actions workflow publishes `ghcr.io/<org>/superapp2`.
